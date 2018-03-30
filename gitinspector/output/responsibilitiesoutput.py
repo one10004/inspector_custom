@@ -81,7 +81,7 @@ class ResponsibilitiesOutput(Outputable):
 				resp_xml += "</div>"
 		resp_xml += "</div></div>"
 
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 		f.write(resp_xml)
 		f.close()
 		#print(resp_xml)

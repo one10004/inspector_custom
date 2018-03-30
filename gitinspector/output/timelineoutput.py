@@ -130,7 +130,7 @@ class TimelineOutput(Outputable):
 				__output_row__html__(timeline_data, periods[i:i+max_periods_per_row], names)
 
 			timeline_xml = "</div></div>"
-			f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+			f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 			f.write(timeline_xml)
 			f.close()
 			#print(timeline_xml)

@@ -49,7 +49,7 @@ class ExtensionsOutput(Outputable):
 				extensions_xml += " "
 
 			extensions_xml += "</p></div></div>"
-			f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+			f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 			f.write(extensions_xml)
 			f.close()
 			#print(extensions_xml)

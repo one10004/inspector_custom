@@ -94,7 +94,7 @@ class ChangesOutput(Outputable):
 
 		changes_xml += "</div></div>"
 
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 		f.write(changes_xml)
 		f.close()
 		#print(changes_xml)

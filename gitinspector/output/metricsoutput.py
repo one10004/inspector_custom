@@ -92,7 +92,7 @@ class MetricsOutput(Outputable):
 			metrics_xml += "</div>"
 
 		metrics_xml += "</div></div>"
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 		f.write(metrics_xml)
 		f.close()
 		#print(metrics_xml)

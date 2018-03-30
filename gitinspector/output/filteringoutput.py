@@ -54,7 +54,7 @@ class FilteringOutput(Outputable):
 			FilteringOutput.__output_html_section__(_(FILTERING_COMMIT_INFO_TEXT), __filters__["revision"][1])
 			filtering_xml += "</div></div>"
 
-			f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+			f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 			f.write(filtering_xml)
 			f.close()
 			#print(filtering_xml)
