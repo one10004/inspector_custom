@@ -91,7 +91,7 @@ def output_header(repos):
 		else:
 			jquery_js = " src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\">"
 
-		f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','w')
+		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','w')
 
 		data = html_header.format(title=_("Repository statistics for '{0}'").format(repos_string),
 		                         jquery=jquery_js,
