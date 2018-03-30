@@ -153,7 +153,7 @@ def output_footer():
 		base = basedir.get_basedir()
 		html_footer = __output_html_template__(base + "/html/html.footer")
 
-		f = open('~/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
 		f.write(html_footer)
 		f.close()
 		#print(html_footer)
