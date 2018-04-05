@@ -80,6 +80,7 @@ class Runner(object):
 			os.chdir(previous_directory)
 
 		format.output_header(repos)
+		print(repos)
 		outputable.output(ChangesOutput(summed_changes))
 
 		if summed_changes.get_commits():
@@ -139,7 +140,7 @@ def main():
 
 		args.pop()
 		args.pop()
-		
+
 		repos = __get_validated_git_repos__(set(args))
 
 
