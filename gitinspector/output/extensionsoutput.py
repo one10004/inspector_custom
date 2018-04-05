@@ -36,7 +36,7 @@ class ExtensionsOutput(Outputable):
 
 		return False
 
-	def output_html(self):
+	def output_html(self, name):
 		if extensions.__located_extensions__:
 			extensions_xml = "<div><div class=\"box\">"
 			extensions_xml += "<p>{0} {1}.</p><p>".format(_(EXTENSIONS_INFO_TEXT), _(EXTENSIONS_MARKED_TEXT))
@@ -49,7 +49,9 @@ class ExtensionsOutput(Outputable):
 				extensions_xml += " "
 
 			extensions_xml += "</p></div></div>"
-			f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+
+			html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+			f = open(html_output,'a')
 			f.write(extensions_xml)
 			f.close()
 			#print(extensions_xml)

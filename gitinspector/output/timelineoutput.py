@@ -115,7 +115,7 @@ class TimelineOutput(Outputable):
 			for i in range(0, len(periods), max_periods_per_row):
 				__output_row__text__(timeline_data, periods[i:i+max_periods_per_row], names)
 
-	def output_html(self):
+	def output_html(self, name):
 		if self.changes.get_commits():
 			timeline_data = timeline.TimelineData(self.changes, self.useweeks)
 			periods = timeline_data.get_periods()
@@ -130,7 +130,9 @@ class TimelineOutput(Outputable):
 				__output_row__html__(timeline_data, periods[i:i+max_periods_per_row], names)
 
 			timeline_xml = "</div></div>"
-			f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+
+			html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+			f = open(html_output,'a')
 			f.write(timeline_xml)
 			f.close()
 			#print(timeline_xml)

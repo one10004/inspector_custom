@@ -39,7 +39,7 @@ class BlameOutput(Outputable):
 		self.blame = blame
 		Outputable.__init__(self)
 
-	def output_html(self):
+	def output_html(self, name):
 		blame_xml = "<div><div class=\"box\">"
 		blame_xml += "<p>" + _(BLAME_INFO_TEXT) + ".</p><div><table id=\"blame\" class=\"git\">"
 		blame_xml += "<thead><tr> <th>{0}</th> <th>{1}</th> <th>{2}</th> <th>{3}</th> <th>{4}</th> </tr></thead>".format(
@@ -92,7 +92,8 @@ class BlameOutput(Outputable):
 		blame_xml += "    });"
 		blame_xml += "</script></div></div>"
 
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		f = open(html_output,'a')
 		f.write(blame_xml)
 		f.close()
 		#print(blame_xml)

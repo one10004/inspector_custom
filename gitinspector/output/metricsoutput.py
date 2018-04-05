@@ -61,7 +61,7 @@ class MetricsOutput(Outputable):
 			for i in sorted(set([(j, i) for (i, j) in self.metrics.cyclomatic_complexity_density.items()]), reverse=True):
 				print(_("{0} ({1:.3f} in cyclomatic complexity density)").format(i[1], i[0]))
 
-	def output_html(self):
+	def output_html(self, name):
 		metrics_xml = "<div><div class=\"box\" id=\"metrics\">"
 
 		if not self.metrics.eloc and not self.metrics.cyclomatic_complexity and not self.metrics.cyclomatic_complexity_density:
@@ -92,7 +92,9 @@ class MetricsOutput(Outputable):
 			metrics_xml += "</div>"
 
 		metrics_xml += "</div></div>"
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		f = open(html_output,'a')
 		f.write(metrics_xml)
 		f.close()
 		#print(metrics_xml)

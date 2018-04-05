@@ -22,7 +22,7 @@ from __future__ import unicode_literals
 from .. import format
 
 class Outputable(object):
-	def output_html(self):
+	def output_html(self, name):
 		raise NotImplementedError(_("HTML output not yet supported in") + " \"" + self.__class__.__name__ + "\".")
 
 	def output_json(self):
@@ -34,9 +34,9 @@ class Outputable(object):
 	def output_xml(self):
 		raise NotImplementedError(_("XML output not yet supported in") + " \"" + self.__class__.__name__ + "\".")
 
-def output(outputable):
+def output(outputable, name):
 	if format.get_selected() == "html" or format.get_selected() == "htmlembedded":
-		outputable.output_html()
+		outputable.output_html(name)
 	elif format.get_selected() == "json":
 		outputable.output_json()
 	elif format.get_selected() == "text":

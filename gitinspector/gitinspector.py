@@ -51,7 +51,7 @@ class Runner(object):
 		self.timeline = False
 		self.useweeks = False
 
-	def process(self, repos):
+	def process(self, repos, name):
 		localization.check_compatibility(version.__version__)
 
 		if not self.localize_output:
@@ -79,28 +79,27 @@ class Runner(object):
 		else:
 			os.chdir(previous_directory)
 
-		format.output_header(repos)
-		print(repos)
-		outputable.output(ChangesOutput(summed_changes))
+		format.output_header(repos, name)
+		outputable.output(ChangesOutput(summed_changes), name)
 
 		if summed_changes.get_commits():
-			outputable.output(BlameOutput(summed_changes, summed_blames))
+			outputable.output(BlameOutput(summed_changes, summed_blames), name)
 
 			if self.timeline:
-				outputable.output(TimelineOutput(summed_changes, self.useweeks))
+				outputable.output(TimelineOutput(summed_changes, self.useweeks), name)
 
 			if self.include_metrics:
-				outputable.output(MetricsOutput(summed_metrics))
+				outputable.output(MetricsOutput(summed_metrics), name)
 
 			if self.responsibilities:
-				outputable.output(ResponsibilitiesOutput(summed_changes, summed_blames))
+				outputable.output(ResponsibilitiesOutput(summed_changes, summed_blames), name)
 
-			outputable.output(FilteringOutput())
+			outputable.output(FilteringOutput(), name)
 
 			if self.list_file_types:
-				outputable.output(ExtensionsOutput())
+				outputable.output(ExtensionsOutput(), name)
 
-		format.output_footer()
+		format.output_footer(name)
 		os.chdir(previous_directory)
 
 def __check_python_version__():
@@ -126,7 +125,7 @@ def __get_validated_git_repos__(repos_relative):
 
 	return repos
 
-def main():
+def main(name):
 	argv = terminal.convert_command_line_to_utf8()
 	run = Runner()
 	repos = []
@@ -209,7 +208,7 @@ def main():
 				filtering.add(a)
 
 		__check_python_version__()
-		run.process(repos)
+		run.process(repos, name)
 
 	except (filtering.InvalidRegExpError, format.InvalidFormatError, optval.InvalidOptionArgument, getopt.error) as exception:
 		print(sys.argv[0], "\b:", exception.msg, file=sys.stderr)

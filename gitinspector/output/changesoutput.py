@@ -33,7 +33,7 @@ class ChangesOutput(Outputable):
 		self.changes = changes
 		Outputable.__init__(self)
 
-	def output_html(self):
+	def output_html(self, name):
 		authorinfo_list = self.changes.get_authorinfo_list()
 		total_changes = 0.0
 		changes_xml = "<div><div class=\"box\">"
@@ -94,7 +94,8 @@ class ChangesOutput(Outputable):
 
 		changes_xml += "</div></div>"
 
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		f = open(html_output,'a')
 		f.write(changes_xml)
 		f.close()
 		#print(changes_xml)

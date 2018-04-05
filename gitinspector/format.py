@@ -68,7 +68,7 @@ def __get_zip_file_content__(name, file_name="/html/flot.zip"):
 INFO_ONE_REPOSITORY = N_("Statistical information for the repository '{0}' was gathered on {1}.")
 INFO_MANY_REPOSITORIES = N_("Statistical information for the repositories '{0}' was gathered on {1}.")
 
-def output_header(repos):
+def output_header(repos, name):
 	repos_string = ", ".join([repo.name for repo in repos])
 
 	if __selected_format__ == "html" or __selected_format__ == "htmlembedded":
@@ -91,7 +91,8 @@ def output_header(repos):
 		else:
 			jquery_js = " src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\">"
 
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','w')
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		f = open(html_output,'w')
 
 		data = html_header.format(title=_("Repository statistics for '{0}'").format(repos_string),
 		                         jquery=jquery_js,
@@ -148,12 +149,13 @@ def output_header(repos):
 		print(textwrap.fill(_(INFO_ONE_REPOSITORY if len(repos) <= 1 else INFO_MANY_REPOSITORIES).format(
 		      repos_string, localization.get_date()), width=terminal.get_size()[0]))
 
-def output_footer():
+def output_footer(name):
 	if __selected_format__ == "html" or __selected_format__ == "htmlembedded":
 		base = basedir.get_basedir()
 		html_footer = __output_html_template__(base + "/html/html.footer")
 
-		f = open('/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics2.html','a')
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		f = open(html_output,'a')
 		f.write(html_footer)
 		f.close()
 		#print(html_footer)
