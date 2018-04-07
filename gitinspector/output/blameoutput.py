@@ -92,7 +92,7 @@ class BlameOutput(Outputable):
 		blame_xml += "    });"
 		blame_xml += "</script></div></div>"
 
-		html_output = '/home/ubuntu/ghlee/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
 		f = open(html_output,'a')
 		f.write(blame_xml)
 		f.close()

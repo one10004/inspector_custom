@@ -91,7 +91,7 @@ def output_header(repos, name):
 		else:
 			jquery_js = " src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js\">"
 
-		html_output = '/home/ubuntu/ghlee/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
 		f = open(html_output,'w')
 
 		data = html_header.format(title=_("Repository statistics for '{0}'").format(repos_string),
@@ -154,7 +154,7 @@ def output_footer(name):
 		base = basedir.get_basedir()
 		html_footer = __output_html_template__(base + "/html/html.footer")
 
-		html_output = '/home/ubuntu/ghlee/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
 		f = open(html_output,'a')
 		f.write(html_footer)
 		f.close()
