@@ -55,7 +55,7 @@ class ResponsibilitiesOutput(Outputable):
 					if j >= 9:
 						break
 
-	def output_html(self, name):
+	def output_html(self):
 		resp_xml = "<div><div class=\"box\" id=\"responsibilities\">"
 		resp_xml += "<p>" + _(RESPONSIBILITIES_INFO_TEXT) + ".</p>"
 
@@ -81,7 +81,7 @@ class ResponsibilitiesOutput(Outputable):
 				resp_xml += "</div>"
 		resp_xml += "</div></div>"
 
-		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics1.html'
 		f = open(html_output,'a')
 		f.write(resp_xml)
 		f.close()

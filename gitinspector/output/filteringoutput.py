@@ -45,7 +45,7 @@ class FilteringOutput(Outputable):
 
 		return filtering_xml
 
-	def output_html(self, name):
+	def output_html(self):
 		if has_filtered():
 			filtering_xml = "<div><div class=\"box\">"
 			FilteringOutput.__output_html_section__(_(FILTERING_INFO_TEXT), __filters__["file"][1])
@@ -54,7 +54,7 @@ class FilteringOutput(Outputable):
 			FilteringOutput.__output_html_section__(_(FILTERING_COMMIT_INFO_TEXT), __filters__["revision"][1])
 			filtering_xml += "</div></div>"
 
-			html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
+			html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics1.html'
 			f = open(html_output,'a')
 			f.write(filtering_xml)
 			f.close()

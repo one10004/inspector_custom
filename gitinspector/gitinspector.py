@@ -51,7 +51,7 @@ class Runner(object):
 		self.timeline = False
 		self.useweeks = False
 
-	def process(self, repos, name):
+	def process(self, repos):
 		localization.check_compatibility(version.__version__)
 
 		if not self.localize_output:
@@ -79,28 +79,28 @@ class Runner(object):
 		else:
 			os.chdir(previous_directory)
 
-		format.output_header(repos, name)
-		#outputable.output(ChangesOutput(summed_changes), name)
+		format.output_header(repos)
+		#outputable.output(ChangesOutput(summed_changes))
 
 		if summed_changes.get_commits():
-			outputable.output(ChangesOutput(summed_changes), name)
-			outputable.output(BlameOutput(summed_changes, summed_blames), name)
+			outputable.output(ChangesOutput(summed_changes))
+			outputable.output(BlameOutput(summed_changes, summed_blames))
 
 			if self.timeline:
-				outputable.output(TimelineOutput(summed_changes, self.useweeks), name)
+				outputable.output(TimelineOutput(summed_changes, self.useweeks))
 
 			if self.include_metrics:
-				outputable.output(MetricsOutput(summed_metrics), name)
+				outputable.output(MetricsOutput(summed_metrics))
 
 			if self.responsibilities:
-				outputable.output(ResponsibilitiesOutput(summed_changes, summed_blames), name)
+				outputable.output(ResponsibilitiesOutput(summed_changes, summed_blames))
 
-			outputable.output(FilteringOutput(), name)
+			outputable.output(FilteringOutput())
 
 			if self.list_file_types:
-				outputable.output(ExtensionsOutput(), name)
+				outputable.output(ExtensionsOutput())
 
-		format.output_footer(name)
+		format.output_footer()
 		os.chdir(previous_directory)
 
 def __check_python_version__():
@@ -126,7 +126,7 @@ def __get_validated_git_repos__(repos_relative):
 
 	return repos
 
-def main(name):
+def main():
 	argv = terminal.convert_command_line_to_utf8()
 	run = Runner()
 	repos = []
@@ -209,7 +209,7 @@ def main(name):
 				filtering.add(a)
 
 		__check_python_version__()
-		run.process(repos, name)
+		run.process(repos)
 
 	except (filtering.InvalidRegExpError, format.InvalidFormatError, optval.InvalidOptionArgument, getopt.error) as exception:
 		print(sys.argv[0], "\b:", exception.msg, file=sys.stderr)
