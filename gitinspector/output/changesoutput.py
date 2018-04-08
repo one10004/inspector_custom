@@ -95,6 +95,7 @@ class ChangesOutput(Outputable):
 
 		changes_xml += "</div></div>"
 
+		print("author2 : " , authorinfo_list)
 		html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/' + name + '.html'
 		f = open(html_output,'a')
 		f.write(changes_xml)
