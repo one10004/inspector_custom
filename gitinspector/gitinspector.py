@@ -80,10 +80,10 @@ class Runner(object):
 			os.chdir(previous_directory)
 
 		format.output_header(repos)
-		#outputable.output(ChangesOutput(summed_changes))
+		outputable.output(ChangesOutput(summed_changes))
 
 		if summed_changes.get_commits():
-			outputable.output(ChangesOutput(summed_changes))
+			#outputable.output(ChangesOutput(summed_changes))
 			outputable.output(BlameOutput(summed_changes, summed_blames))
 
 			if self.timeline:
