@@ -138,9 +138,10 @@ def main(name):
 		                                         "metrics:true", "responsibilities:true", "since=", "grading:true",
 		                                         "timeline:true", "until=", "version", "weeks:true"])
 
-		#args.pop()
-		#args.pop()
-
+		args.pop()
+		args.pop()
+		args.pop()
+		
 		repos = __get_validated_git_repos__(set(args))
 
 
