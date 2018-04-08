@@ -35,6 +35,7 @@ class ChangesOutput(Outputable):
 
 	def output_html(self, name):
 		authorinfo_list = self.changes.get_authorinfo_list()
+		print("author : " , authorinfo_list)
 		total_changes = 0.0
 		changes_xml = "<div><div class=\"box\">"
 		chart_data = ""
