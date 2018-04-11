@@ -138,8 +138,9 @@ def main():
 		                                         "metrics:true", "responsibilities:true", "since=", "grading:true",
 		                                         "timeline:true", "until=", "version", "weeks:true"])
 
-		#args.pop()
-		#args.pop()
+		args.pop()
+		args.pop()
+		args.append("--grading")
 
 		repos = __get_validated_git_repos__(set(args))
 
