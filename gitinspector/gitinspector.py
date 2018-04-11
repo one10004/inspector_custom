@@ -42,14 +42,14 @@ localization.init()
 
 class Runner(object):
 	def __init__(self):
-		self.hard = False
-		self.include_metrics = False
-		self.list_file_types = False
+		self.hard = True
+		self.include_metrics = True
+		self.list_file_types = True
 		self.localize_output = False
-		self.responsibilities = False
-		self.grading = False
-		self.timeline = False
-		self.useweeks = False
+		self.responsibilities = True
+		self.grading = True
+		self.timeline = True
+		self.useweeks = True
 
 	def process(self, repos):
 		localization.check_compatibility(version.__version__)
@@ -140,7 +140,6 @@ def main():
 
 		args.pop()
 		args.pop()
-		opts.append("--grading")
 
 		repos = __get_validated_git_repos__(set(args))
 
