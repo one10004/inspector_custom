@@ -79,6 +79,7 @@ class Runner(object):
 		else:
 			os.chdir(previous_directory)
 
+			
 		format.output_header(repos)
 		outputable.output(ChangesOutput(summed_changes))
 
