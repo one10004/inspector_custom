@@ -140,7 +140,7 @@ def main():
 
 		args.pop()
 		args.pop()
-		args.append("--grading")
+		opts.append("--grading")
 
 		repos = __get_validated_git_repos__(set(args))
 
