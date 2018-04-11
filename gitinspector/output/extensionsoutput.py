@@ -50,7 +50,7 @@ class ExtensionsOutput(Outputable):
 
 			extensions_xml += "</p></div></div>"
 
-			html_output = '/home/ubuntu/ttests/gitwatcher/templates/gitwatcher/statistics1.html'
+			html_output = '/home/ec2-user/ttests/gitwatcher/templates/gitwatcher/statistics1.html'
 			f = open(html_output,'a')
 			f.write(extensions_xml)
 			f.close()
